@@ -4,12 +4,21 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  // widget can re rebuilt
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  //the state can be persistent
   var questionIndex = 0;
 
   void answerQuestion() {
-    questionIndex += 1;
-    print(questionIndex);
+    setState(() {
+      questionIndex += 1;
+      print(questionIndex);
+    });
   }
 
   @override
