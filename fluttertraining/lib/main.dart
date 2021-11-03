@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertraining/answer.dart';
 import 'package:fluttertraining/question.dart';
 
 void main() {
@@ -33,22 +34,22 @@ class _MyAppState extends State<MyApp> {
           body: Column(
             children: [
               Question(questions[questionIndex]),
-              RaisedButton(
-                onPressed: answerQuestion,
-                child: Text('Answer 1'),
-              ),
-              RaisedButton(
-                onPressed: () => print(
-                    'Answer 2 chosen!'), //anonymous functions because don't have name of function
-                child: Text('Answer 2'),
-              ),
-              RaisedButton(
-                onPressed: () {
-                  //anonymous functions because don't have name of function
-                  print('Answer 3 chosen!');
-                },
-                child: Text('Answer 3'),
-              ),
+              Answer(
+                  answerQuestion), //function also can be pass using pointer. Answer pass answerQuestion() and Answer will accept the parameter of funcion
+              Answer(answerQuestion),
+              Answer(answerQuestion),
+              // RaisedButton(
+              //   onPressed: () => print(
+              //       'Answer 2 chosen!'), //anonymous functions because don't have name of function
+              //   child: Text('Answer 2'),
+              // ),
+              // RaisedButton(
+              //   onPressed: () {
+              //     //anonymous functions because don't have name of function
+              //     print('Answer 3 chosen!');
+              //   },
+              //   child: Text('Answer 3'),
+              // ),
             ],
           )),
     );
