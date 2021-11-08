@@ -25,7 +25,20 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    var questions = ['What\'s your fav food?', 'What\'s your fav animal?'];
+    var questions = [
+      {
+        'questionText': 'What\'s your fav food?',
+        'answer': ['Black', 'Red', 'Green', 'White'],
+      }, //map is collection of key-value pairs
+      {
+        'questionText': 'What\'s your fav animal?',
+        'answer': ['Rabbit', 'Cat', 'Lion', 'Snake'],
+      },
+      {
+        'questionText': 'What\'s your fav animal?',
+        'answer': ['Rabbit', 'Cat', 'Lion', 'Snake'],
+      }
+    ];
     return MaterialApp(
       home: Scaffold(
           appBar: AppBar(
@@ -33,11 +46,16 @@ class _MyAppState extends State<MyApp> {
           ),
           body: Column(
             children: [
-              Question(questions[questionIndex]),
-              Answer(
-                  answerQuestion), //function also can be pass using pointer. Answer pass answerQuestion() and Answer will accept the parameter of funcion
-              Answer(answerQuestion),
-              Answer(answerQuestion),
+              Question(questions[questionIndex]['questionText']),
+              ...(questions[questionIndex]['answer'] as List<String>)
+                  .map((answer) {
+                ///... - it take a list which is exactly what we have here and the pull all the value s in the list out of it and add them to the surrounding list as individual values
+                return Answer(answerQuestion, answer);
+              }).toList()
+              // Answer(
+              //     answerQuestion), //function also can be pass using pointer. Answer pass answerQuestion() and Answer will accept the parameter of funcion
+              // Answer(answerQuestion),
+              // Answer(answerQuestion),
               // RaisedButton(
               //   onPressed: () => print(
               //       'Answer 2 chosen!'), //anonymous functions because don't have name of function
