@@ -25,7 +25,9 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    var questions = [
+    // use a 'final' if a value doesn't change from the point of time when you program runs. It's runtime constant value but when we're writing code we don't know what the final value will be
+    // use a 'const' if you know value doesn't change during runtime and when write the code
+    const questions = const [
       {
         'questionText': 'What\'s your fav food?',
         'answer': ['Black', 'Red', 'Green', 'White'],
@@ -35,10 +37,12 @@ class _MyAppState extends State<MyApp> {
         'answer': ['Rabbit', 'Cat', 'Lion', 'Snake'],
       },
       {
-        'questionText': 'What\'s your fav animal?',
-        'answer': ['Rabbit', 'Cat', 'Lion', 'Snake'],
+        'questionText': 'What\'s your fav person?',
+        'answer': ['Eubin', 'NanNan', 'Yan Wei', 'Shaf'],
       }
     ];
+
+    //questions = []; //does not work if questions is a const
     return MaterialApp(
       home: Scaffold(
           appBar: AppBar(
