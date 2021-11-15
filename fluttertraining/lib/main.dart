@@ -17,29 +17,45 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   //the state can be persistent
   var _questionIndex = 0;
+  var _totalScore = 0;
   // use a 'final' if a value doesn't change from the point of time when you program runs. It's runtime constant value but when we're writing code we don't know what the final value will be
   // use a 'const' if you know value doesn't change during runtime and when write the code
   final _questions = const [
     {
       'questionText': 'What\'s your fav food?',
-      'answer': ['Black', 'Red', 'Green', 'White'],
+      'answer': [
+        {'text': 'Black', 'score': 10},
+        {'text': 'Red', 'score': 5},
+        {'text': 'Green', 'score': 3},
+        {'text': 'White', 'score': 1}
+      ],
     }, //map is collection of key-value pairs
     {
       'questionText': 'What\'s your fav animal?',
-      'answer': ['Rabbit', 'Cat', 'Lion', 'Snake'],
+      'answer': [
+        {'text': 'Rabbit', 'score': 10},
+        {'text': 'Cat', 'score': 8},
+        {'text': 'Lion', 'score': 7},
+        {'text': 'Snake', 'score': 5}
+      ],
     },
     {
       'questionText': 'What\'s your fav person?',
-      'answer': ['Eubin', 'NanNan', 'Yan Wei', 'Shaf'],
+      'answer': [
+        {'text': 'Eubin', 'score': 8},
+        {'text': 'NanNan', 'score': 6},
+        {'text': 'Yan Wei', 'score': 9},
+        {'text': 'Shaf', 'score': 10}
+      ],
     }
   ];
 
   //questions = []; //does not work if questions is a const
 
-  void _answerQuestion() {
+  void _answerQuestion(int score) {
     // var aBool = true;
     // aBool = false;
-
+    _totalScore = score + _totalScore;
     setState(() {
       _questionIndex += 1;
       print(_questionIndex);

@@ -19,9 +19,11 @@ class Quiz extends StatelessWidget {
     return Column(
       children: [
         Question(questions[questionIndex]['questionText']),
-        ...(questions[questionIndex]['answer'] as List<String>).map((answer) {
+        ...(questions[questionIndex]['answer'] as List<Map<String, Object>>)
+            .map((answer) {
           ///... - it take a list which is exactly what we have here and the pull all the value s in the list out of it and add them to the surrounding list as individual values
-          return Answer(answerQuestion, answer);
+          return Answer(() => answerQuestion(answer['score']),
+              answer['text'] as String); //anonymous
         }).toList()
       ],
     );
