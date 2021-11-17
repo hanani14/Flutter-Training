@@ -50,6 +50,12 @@ class _MyAppState extends State<MyApp> {
     }
   ];
 
+  void _resetQuiz() {
+    setState(() {
+      _questionIndex = 0;
+      _totalScore = 0;
+    });
+  }
   //questions = []; //does not work if questions is a const
 
   void _answerQuestion(int score) {
@@ -107,7 +113,7 @@ class _MyAppState extends State<MyApp> {
               //       // ),
               //     ],
               //   )
-              : Result(_totalScore)),
+              : Result(_totalScore, _resetQuiz)),
     );
   }
 }
