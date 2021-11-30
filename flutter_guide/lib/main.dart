@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_guide/transaction.dart';
+import 'package:intl/intl.dart';
 
 void main() {
   runApp(MyApp());
@@ -29,6 +30,8 @@ class MyHomePage extends StatelessWidget {
         amount: 99.99,
         date: DateTime.now())
   ];
+// container - takes exactly one child widget, rich alligment & styling options, flexible width( e.g. child width), perfect for custom styling & aligment
+// column/row - takes multiple (unlimited) child widgets, alignment but no styling options, always take full available height(column) / width(row), must use if widgets sit next to/ above others
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +68,7 @@ class MyHomePage extends StatelessWidget {
                         margin:
                             EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                         child: Text(
-                          tx.amount.toString(),
+                          '\$${tx.amount}',
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 20,
@@ -82,7 +85,7 @@ class MyHomePage extends StatelessWidget {
                               color: Colors.black),
                         ),
                         Text(
-                          tx.date.toString(),
+                          DateFormat.yMMMd().format(tx.date),
                           style: TextStyle(fontSize: 15, color: Colors.grey),
                         ),
                       ],
