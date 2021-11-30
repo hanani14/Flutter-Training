@@ -37,7 +37,9 @@ class MyHomePage extends StatelessWidget {
         title: Text('Flutter App'),
       ),
       body: Column(
+        //main for top bottom
         mainAxisAlignment: MainAxisAlignment.spaceAround,
+        //cross for left right
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Container(
@@ -57,15 +59,32 @@ class MyHomePage extends StatelessWidget {
                     //styling a container
                     Container(
                         decoration: BoxDecoration(
-                            border: Border.all(color: Colors.black, width: 2)),
+                            border:
+                                Border.all(color: Colors.deepPurple, width: 2)),
                         padding: EdgeInsets.all(10),
                         margin:
                             EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                        child: Text(tx.amount.toString())),
+                        child: Text(
+                          tx.amount.toString(),
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                              color: Colors.deepPurple),
+                        )),
                     Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(tx.title),
-                        Text(tx.date.toString()),
+                        Text(
+                          tx.title,
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 15,
+                              color: Colors.black),
+                        ),
+                        Text(
+                          tx.date.toString(),
+                          style: TextStyle(fontSize: 15, color: Colors.grey),
+                        ),
                       ],
                     ),
                   ],
