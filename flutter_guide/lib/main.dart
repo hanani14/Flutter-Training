@@ -41,16 +41,40 @@ class MyHomePage extends StatelessWidget {
       ),
       body: Column(
         //main for top bottom
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        // mainAxisAlignment: MainAxisAlignment.spaceAround,
         //cross for left right
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Container(
             width: double.infinity,
             child: Card(
-              color: Colors.purple,
+              color: Colors.blueAccent,
               child: Text('CHART!'),
               elevation: 5,
+            ),
+          ),
+          Card(
+            elevation: 5,
+            child: Container(
+              padding: EdgeInsets.all(10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  TextField(
+                    decoration: InputDecoration(labelText: 'Title'),
+                  ),
+                  TextField(
+                    decoration: InputDecoration(labelText: 'Amount'),
+                  ),
+                  FlatButton(
+                    onPressed: () {},
+                    child: Text(
+                      'Add Transaction',
+                    ),
+                    textColor: Colors.purple,
+                  )
+                ],
+              ),
             ),
           ),
           Column(
