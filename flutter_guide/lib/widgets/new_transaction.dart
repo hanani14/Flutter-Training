@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 class NewTransaction extends StatelessWidget {
   final titleController = TextEditingController();
   final amountController = TextEditingController();
+  final Function tx;
+  NewTransaction(this.tx);
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -30,6 +32,7 @@ class NewTransaction extends StatelessWidget {
                 // print(amountInput);
                 print(titleController);
                 print(amountController);
+                tx(titleController.text, double.parse(amountController.text));
               },
               child: Text(
                 'Add Transaction',
